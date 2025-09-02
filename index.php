@@ -3,7 +3,7 @@
 <section class="hero">
   <div class="hero-content">
     <div class="badge">Welcome</div>
-    <h1>Hey, I’m <span class="grad">Senpai</span> 👋</h1>
+    <h1>Hey, I’m <span class="grad">Taken</span> 👋</h1>
     <p class="lead">I build playful things — bots, dashboards, and experiences with anime energy.</p>
     <div class="cta">
       <a class="btn primary" href="<?= asset('about.php') ?>">About Me</a>
@@ -41,7 +41,6 @@
               frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
     </div>
-    <p class="muted">Current pick — change <code>$SITE['latest_video']</code> in <code>includes/config.php</code>.</p>
   </article>
 
   <!-- LANYARD STATUS CARD -->
@@ -60,30 +59,37 @@
   <!-- CAROUSEL -->
   <article class="card glass hoverable">
     <div class="card-head">
-      <h3>Anime / Game Carousel</h3>
-      <span class="chip">Gallery</span>
+      <h3>Taken's Theories</h3>
+      <span class="chip">Theories Session</span>
     </div>
 
     <div class="carousel" id="animeCarousel" role="region" aria-label="Anime carousel">
-      <button class="carousel-nav left" data-dir="-1" aria-label="Previous">‹</button>
+      <button class="carousel-nav left" data-dir="-1" aria-label="Previous"><b>‹</b></button>
       <div class="carousel-track">
         <div class="carousel-item glass">
-          <img src="<?= asset('assets/images/placeholder-anime-1.jpg') ?>" alt="Anime 1" />
-          <div class="carousel-caption"><strong>Kitsune Drift</strong><span>— Indie RPG</span></div>
+          <img src="<?= asset('assets/images/Juth.jpg') ?>" alt="AYO WHERE IS THE FKING IMAGE" />
+          <div class="carousel-caption"><strong>Nothing...</strong><span>— Iam Your Best Buddy</span></div>
         </div>
         <div class="carousel-item glass">
-          <img src="<?= asset('assets/images/placeholder-game-1.jpg') ?>" alt="Game 1" />
-          <div class="carousel-caption"><strong>Neon Runner</strong><span>— Highscore</span></div>
+          <img src="<?= asset('assets/images/hmm.png') ?>" alt="AYO WHERE IS THE FKING IMAGE" />
+          <div class="carousel-caption"><strong>Why I Exist</strong><span>— You know?</span></div>
         </div>
         <div class="carousel-item glass">
-          <img src="<?= asset('assets/images/placeholder-anime-2.jpg') ?>" alt="Anime 2" />
-          <div class="carousel-caption"><strong>Starfall</strong><span>— Ongoing</span></div>
+          <img src="<?= asset('assets/images/Dandadan.png') ?>" alt="AYO WHERE IS THE FKING IMAGE" />
+          <div class="carousel-caption"><strong>DANDADAN IS</strong><span><b>CINEMA</b></span></div>
         </div>
+        <div class="carousel-item glass">
+          <img src="<?= asset('assets/images/spiderman.png') ?>" alt="AYO WHERE IS THE FKING IMAGE" />
+          <div class="carousel-caption"><strong>THIS IS</strong><span><b>SPIDERMAN</b></span></div>
+        </div>
+        <div class="carousel-item glass">
+          <img src="<?= asset('assets/images/mood.gif') ?>" alt="AYO WHERE IS THE FKING IMAGE" />
+          <div class="carousel-caption"><strong>THIS IS</strong><span><b>MOOOOOOD</b></span></div>
       </div>
-      <button class="carousel-nav right" data-dir="1" aria-label="Next">›</button>
+      </div>
+      
+      <button class="carousel-nav right" data-dir="1" aria-label="Next"><b>›</b></button>
     </div>
-
-    <p class="muted">Fun carousel — replace images in <code>assets/images/</code> with your art.</p>
   </article>
 </section>
 <?php include __DIR__ . "/includes/footer.php"; ?>

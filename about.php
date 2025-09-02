@@ -10,11 +10,11 @@
       </div>
 
 
-      <h2 class="profile-name">Senpai</h2>
+      <h2 class="profile-name">Taken</h2>
       <div class="muted">Coder • Anime Lover • Maker of neat chaos</div>
 
       <p class="profile-bio">
-        Hey — I'm Senpai. I build bots, tiny games, and flashy UIs. I love brown-skinned Japanese characters, rom-coms, and anything that looks heartbreakingly beautiful. This page is my style + story.
+        Hey — I'm Taken (AKA Brezzeyboi). I build bots, tiny games, and flashy UIs. I love brown-skinned Japanese characters, rom-coms, and anything that looks heartbreakingly beautiful. This page is my style + story.
       </p>
 
       <div class="profile-actions">

@@ -114,26 +114,58 @@ document.addEventListener("DOMContentLoaded", () => {
       tlItems.forEach(i => tObserver.observe(i));
     }
   })();
-
-  /* ================= Carousel ================= */
+/* ================= Carousel (Custom -1 to 2 cycle) ================= */
   (function carouselInit() {
     const track = document.querySelector(".carousel-track");
     if (!track) return;
+    
     const items = track.querySelectorAll(".carousel-item");
-    const left = document.querySelector(".carousel-nav.left");
-    const right = document.querySelector(".carousel-nav.right");
-    let idx = 0;
-    const show = (i) => {
-      idx = (i + items.length) % items.length;
-      const w = items[0].getBoundingClientRect().width + 18; // gap
-      track.style.transform = `translateX(-${idx * w}px)`;
-    };
-    left?.addEventListener("click", () => show(idx - 1));
-    right?.addEventListener("click", () => show(idx + 1));
-    window.addEventListener("resize", () => show(idx));
-    show(0);
-  })();
+    const leftBtn = document.querySelector(".carousel-nav.left");
+    const rightBtn = document.querySelector(".carousel-nav.right");
+    
+    if (items.length === 0) return;
+    
+    let currentIndex = -3; // Start at -1
+    
+    // Define your 4 positions: -1, 0, 1, 2
+    const positions = [-2, -1, 0, 1, 2];
+    let positionIndex = 0; // Start at position 0 in the positions array (which is -2)
 
+    const updateCarousel = () => {
+      const itemWidth = items[0].getBoundingClientRect().width;
+      const gap = 18;
+      const offset = -currentIndex * (itemWidth + gap);
+      track.style.transform = `translateX(${offset}px)`;
+      
+      console.log(`Carousel: position ${currentIndex} - showing item ${currentIndex + 2}/${items.length + 1}`);
+    };
+    
+    const goLeft = () => {
+      // Move to previous position in the cycle
+      positionIndex = (positionIndex - 1 + positions.length) % positions.length;
+      currentIndex = positions[positionIndex];
+      updateCarousel();
+    };
+    
+    const goRight = () => {
+      // Move to next position in the cycle
+      positionIndex = (positionIndex + 1) % positions.length;
+      currentIndex = positions[positionIndex];
+      updateCarousel();
+    };
+    
+    // Event listeners
+    leftBtn?.addEventListener("click", goLeft);
+    rightBtn?.addEventListener("click", goRight);
+    
+    // Handle window resize
+    window.addEventListener("resize", () => updateCarousel());
+    
+    // Initialize - start at position -1
+    currentIndex = -2;
+    positionIndex = 0;
+    updateCarousel();
+  })();
 
   /* ================= Fun Zone: Clicker, Trivia, Roulette ================= */
   (function funZoneInit() {
