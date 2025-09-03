@@ -65,7 +65,7 @@
           </li>
           <li class="tl-item">
             <time>2024</time>
-            <div class="tl-content"><strong>Senpai Hub</strong><p>Launched this hub to collect experiments and fun things.</p></div>
+            <div class="tl-content"><strong>Taken's Hub</strong><p>Launched this hub to collect experiments and fun things.</p></div>
           </li>
         </ol>
       </div>

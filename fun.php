@@ -6,7 +6,7 @@
     <p class="muted">Mini-games, anime roulette, and secret easter-eggs. Progress is stored locally.</p>
 
     <div class="fun-panel glass">
-      <h3>Clicker — Gain Senpai Points</h3>
+      <h3>Clicker — Gain Points</h3>
       <div class="clicker">
         <button id="clickerBtn" class="btn primary big-btn">💥 Click Me</button>
         <div class="score">Points: <span id="clickerScore">0</span></div>

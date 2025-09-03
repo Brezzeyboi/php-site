@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div class="fineprint">© <?= date("Y") ?> <?= htmlspecialchars($SITE["brand"]) ?> · Made with ❤️ by Senpai</div>
+    <div class="fineprint">© <?= date("Y") ?> <?= htmlspecialchars($SITE["brand"]) ?> · Made with ❤️ by Taken</div>
   </footer>
 
 </div>
