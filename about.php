@@ -14,7 +14,7 @@
       <div class="muted">Coder • Anime Lover • Maker of neat chaos</div>
 
       <p class="profile-bio">
-        Hey — I'm Taken (AKA Brezzeyboi). I build bots, tiny games, and flashy UIs. I love brown-skinned Japanese characters, rom-coms, and anything that looks heartbreakingly beautiful. This page is my style + story.
+        Hey — I'm Taken (AKA Brezzeyboi). I build bots, tiny games, Websites, and flashy UIs. I love anime, Comedy Movies, and anything that looks funny and beautiful. This page is my style + story.
       </p>
 
       <div class="profile-actions">
@@ -23,11 +23,14 @@
       </div>
 
       <div class="badges">
-        <span class="chip">PHP</span>
+        <span class="chip">PYTHON</span>
         <span class="chip">JS</span>
         <span class="chip">Tailwind</span>
-        <span class="chip">Electron</span>
+        <span class="chip">HTML</span>
+        <span class="chip">CSS</span>
         <span class="chip">Anime</span>
+        <span class="chip">Metophile (Music Lover)</span>
+        <span class="chip">Funny</span>
       </div>
     </div>
 
@@ -52,20 +55,29 @@
         <h3>Timeline</h3>
         <ol class="timeline">
           <li class="tl-item">
-            <time>2021</time>
-            <div class="tl-content"><strong>First Discord bot</strong><p>Built a leveling bot — cried, learned, refactored.</p></div>
-          </li>
-          <li class="tl-item">
-            <time>2022</time>
-            <div class="tl-content"><strong>NeoPlayer UI</strong><p>Designed a sleek music player inspired by Spotify.</p></div>
-          </li>
-          <li class="tl-item">
-            <time>2023</time>
-            <div class="tl-content"><strong>SenOS start</strong><p>Started a simulated OS project combining JS and Python.</p></div>
+             <li class="tl-item">
+            <time>2024</time>
+            <div class="tl-content"><strong>Task Tune</strong><p>A small To-do-List webiste with clean UI.</p></div>
           </li>
           <li class="tl-item">
             <time>2024</time>
-            <div class="tl-content"><strong>Taken's Hub</strong><p>Launched this hub to collect experiments and fun things.</p></div>
+            <div class="tl-content"><strong>NeoPlayer</strong><p>Designed a sleek music player inspired by Spotify.</p></div>
+          </li>
+          <li class="tl-item">
+            <time>2024</time>
+            <div class="tl-content"><strong>Fynx Browser</strong><p>A web browser built with Electron, and a focus on simplicity.</p></div>
+          </li>
+          <li class="tl-item">
+            <time>2025</time>
+            <div class="tl-content"><strong>First Discord bot</strong><p>Built a leveling bot — cried, learned, refactored.</p></div>
+          </li>
+          <li class="tl-item">
+            <time>2025</time>
+            <div class="tl-content"><strong>Taken's Hub</strong><p>MADE this hub For Fun and fun things.</p></div>
+          </li>
+          <li class="tl-item">
+            <time>MORE</time>
+            <div class="tl-content"><strong>There are many but I can't list them all</strong><p>JUST BECAUSE THE PAGE IS SMALL!!!!</p></div>
           </li>
         </ol>
       </div>

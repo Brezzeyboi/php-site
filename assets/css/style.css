@@ -441,36 +441,11 @@ body.theme-light .btn.primary { color: #0c1220; }
 .status-idle   { background: #faa61a; }
 .status-dnd    { background: #f04747; }
 .status-offline{ background: #747f8d; }
-
-#moodGame {
-  margin-top: 20px;
-  text-align: center;
-}
-#moodClicker {
-  margin-bottom: 10px;
-}
-#moodEmoji {
-  font-size: 3rem;
-  transition: transform 0.3s ease;
-}
 #secretBox {
-  height: 90px;
-  overflow: hidden;
-  transition: height 0.5s ease;
-}
-
-#secretBox.unlocked {
-  height: auto;       /* let it grow naturally */
-  min-height: 350px;  /* ensure enough room */
-}
-.btn.retry {
-  background: #2563eb;
-  color: #fff;
-  border: none;
-}
-
-.btn.home {
-  background: #e5e5e5;
-  color: #111;
-  border: none;
+  min-height: 350px;   /* adjust as needed */
+  padding: 16px;       /* adds breathing room */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }

@@ -4,7 +4,7 @@
   <div class="hero-content">
     <div class="badge">Welcome</div>
     <h1>Hey, I’m <span class="grad">Taken</span> 👋</h1>
-    <p class="lead">I build playful things — bots, dashboards, and experiences with anime energy.</p>
+    <p class="lead">I build playful things — bots, Websites, and experiences with anime energy.</p>
     <div class="cta">
       <a class="btn primary" href="<?= asset('about.php') ?>">About Me</a>
       <a class="btn" href="<?= asset('fun.php') ?>">Fun Zone 🎮</a>

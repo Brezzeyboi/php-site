@@ -377,6 +377,9 @@ function initMoodGame() {
 
 /* === Easter Unlock (wrapped into a function) === */
 function revealSecretIfReady() {
+  const secretBox = document.getElementById("secretBox");
+  if (!secretBox) return; // ✅ prevents null crash
+
   if (spinCount >= 10 || localStorage.getItem(EASTER_KEY) === "unlocked") {
     localStorage.setItem(EASTER_KEY, "unlocked");
     secretBox.classList.add("unlocked");
@@ -394,14 +397,13 @@ function revealSecretIfReady() {
     localStorage.removeItem(MOOD_KEY);
     localStorage.removeItem("senpai_mood_unlocked");
 
-    // initialize mood game UI
+    // initialize mood game UI safely
     initMoodGame();
 
-    // smooth scroll so it’s visible
+    // smooth scroll if visible
     secretBox.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 }
-
 // Initial check
 revealSecretIfReady();
 
@@ -432,21 +434,18 @@ spinRouletteBtn?.addEventListener("click", () => {
     revealSecretIfReady(); // check unlock again
   }, 600);
 });
-
-
 })(); 
-
-
 (function liveDiscordStatus() {
   const statusEl = document.getElementById("discordStatus");
   if (!statusEl) return;
 
-  const userId = "828224764086452224";
+  const userId = "828224764086452224"; // ⚠️ Must be YOUR real Discord ID
   const ws = new WebSocket("wss://api.lanyard.rest/socket");
 
   let heartbeat;
 
   ws.onopen = () => {
+    console.log("✅ Connected to Lanyard WS");
     ws.send(JSON.stringify({
       op: 2,
       d: { subscribe_to_id: userId }
@@ -456,21 +455,31 @@ spinRouletteBtn?.addEventListener("click", () => {
   ws.onmessage = ({ data }) => {
     const msg = JSON.parse(data);
 
-    // Heartbeat keep-alive
+    // Setup heartbeat when server sends hello
     if (msg.op === 1) {
-      heartbeat = setInterval(() => ws.send(JSON.stringify({ op: 3 })), msg.d.heartbeat_interval);
+      console.log("💓 Heartbeat every", msg.d.heartbeat_interval, "ms");
+      clearInterval(heartbeat);
+      heartbeat = setInterval(() => {
+        ws.send(JSON.stringify({ op: 3 }));
+      }, msg.d.heartbeat_interval);
     }
 
-    if (msg.t !== "INIT_STATE" && msg.t !== "PRESENCE_UPDATE") return;
-
-    const d = msg.d;
-    renderStatus(d);
+    if (msg.t === "INIT_STATE" || msg.t === "PRESENCE_UPDATE") {
+      renderStatus(msg.d);
+    }
   };
 
+  ws.onerror = (err) => console.error("❌ WS error:", err);
+  ws.onclose = () => console.warn("⚠️ Lanyard WS closed");
+
   function renderStatus(d) {
+    if (!d.discord_user) return;
+
     const user = d.discord_user;
-    const activity = d.activities.find(a => a.type === 0); // "Playing" activity
-    const avatar = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+    const avatar = user.avatar
+      ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`
+      : "https://cdn.discordapp.com/embed/avatars/0.png";
+
     const statusMap = {
       online: "status-online",
       idle: "status-idle",
@@ -484,12 +493,16 @@ spinRouletteBtn?.addEventListener("click", () => {
         <div>
           <strong>${user.username}</strong><br>
           <span class="muted">
-            <span class="status-dot ${statusMap[d.discord_status]}"></span>
+            <span class="status-dot ${statusMap[d.discord_status] || "status-offline"}"></span>
             ${d.discord_status}
           </span>
         </div>
       </div>
     `;
+
+    // 🎮 Pick activity: normal app/game activity OR custom status
+    const activity = d.activities?.find(a => a.type === 0);
+    const custom = d.activities?.find(a => a.type === 4);
 
     if (activity) {
       const large = activity.assets?.large_image?.replace("mp:", "");
@@ -510,10 +523,19 @@ spinRouletteBtn?.addEventListener("click", () => {
           </div>
         </div>
       `;
+    } else if (custom) {
+      // 🌸 Show custom status if no other activity
+      html += `
+        <div class="discord-activity">
+          <div>
+            <span class="muted">${custom.state || ""}</span>
+          </div>
+        </div>
+      `;
     }
 
     statusEl.classList.remove("loading");
     statusEl.innerHTML = html;
   }
 })();
-});
+})();
