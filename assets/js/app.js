@@ -415,7 +415,7 @@ spinRouletteBtn?.addEventListener("click", () => {
     "Your limits are only in your head.",
     "Eat, sleep, code, repeat.",
     "That feeling when the boss drops rare loot.",
-    "Senpai noticed you.",
+    "Taken noticed you.",
     "A small step is still a step.",
     "Press start to believe.",
     "Glitches are just features training."
